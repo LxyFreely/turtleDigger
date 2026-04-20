@@ -62,3 +62,29 @@ function dump()
     end
 end
 
+function checkFuel()
+    local target = 300
+    if turtle.getFuelLevel() >= target then return end
+
+    print("--- Refueling ---")
+    while turtle.getFuelLevel() < target do
+        local fuelBefore = turtle.getFuelLevel()
+        local refueled = false
+        for slot = 1, 16 do
+            turtle.select(slot)
+            if turtle.getItemCount() > 0 then
+                turtle.refuel(1)
+                if turtle.getFuelLevel() > fuelBefore then
+                    print("Fueled: " .. turtle.getFuelLevel() .. "/" .. target)
+                    refueled = true
+                    break
+                end
+            end
+        end
+        if not refueled then
+            print("ERROR: No fuel!")
+            os.pullEvent("turtle_inventory")
+        end
+    end
+    print("--- Ready ---")
+end
