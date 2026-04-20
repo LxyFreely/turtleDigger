@@ -20,3 +20,24 @@ function do1()
         turtle.digDown()
     end
 end
+
+function do2()
+    turtle.right()
+    turtle.forward()
+    turtle.right()
+end
+
+function do3()
+    turtle.left()
+    turtle.forward()
+    turtle.left()
+end
+
+function do4()
+    turtle.right()
+    for i = 1, 16 do
+        turtle.forward()
+    end
+    turtle.right()
+end
+
