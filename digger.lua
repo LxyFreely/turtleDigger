@@ -23,23 +23,23 @@ local function do1()
 end
 
 local function do2()
-    turtle.right()
+    turtle.turnRight()
     turtle.forward()
-    turtle.right()
+    turtle.turnRight()
 end
 
 local function do3()
-    turtle.left()
+    turtle.turnLeft()
     turtle.forward()
-    turtle.left()
+    turtle.turnLeft()
 end
 
 local function do4()
-    turtle.right()
+    turtle.turnRight()
     for i = 1, 16 do
         turtle.forward()
     end
-    turtle.right()
+    turtle.turnRight()
 end
 
 local function do5()
