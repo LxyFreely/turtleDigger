@@ -41,3 +41,16 @@ function do4()
     turtle.right()
 end
 
+function do5()
+    while not turtle.detectUp() do
+        turtle.up()
+    end
+end
+
+function do6()
+    while not turtle.detectDown() do
+        turtle.down()
+    end
+end
+
+function 
