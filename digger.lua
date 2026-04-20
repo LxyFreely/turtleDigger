@@ -16,7 +16,7 @@
 
 function do1()
     for i = 1, 16 do
-        forward()
-        dig()
+        turtle.forward()
+        turtle.digDown()
     end
 end
