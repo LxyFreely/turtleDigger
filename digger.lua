@@ -13,27 +13,28 @@
 然后执行动作四回到原点
 然后执行动作五，卸货之后执行动作六
 --]]
+n=40
 
-function do1()
+local function do1()
     for i = 1, 16 do
-        turtle.forward()
         turtle.digDown()
+        turtle.forward()
     end
 end
 
-function do2()
+local function do2()
     turtle.right()
     turtle.forward()
     turtle.right()
 end
 
-function do3()
+local function do3()
     turtle.left()
     turtle.forward()
     turtle.left()
 end
 
-function do4()
+local function do4()
     turtle.right()
     for i = 1, 16 do
         turtle.forward()
@@ -41,19 +42,15 @@ function do4()
     turtle.right()
 end
 
-function do5()
-    while not turtle.detectUp() do
-        turtle.up()
-    end
+local function do5()
+    while turtle.up() do end
 end
 
-function do6()
-    while not turtle.detectDown() do
-        turtle.down()
-    end
+local function do6()
+    while turtle.down() do end
 end
 
-function dump()
+local function dump()
     for slot = 9,16 do
         turtle.select(slot)
         if turtle.getItemCount() > 0 then
@@ -62,7 +59,7 @@ function dump()
     end
 end
 
-function checkFuel()
+local function checkFuel()
     local target = 300
     if turtle.getFuelLevel() >= target then return end
 
@@ -83,8 +80,25 @@ function checkFuel()
         end
         if not refueled then
             print("ERROR: No fuel!")
-            os.pullEvent("turtle_inventory")
         end
     end
     print("--- Ready ---")
+end
+
+
+--begin main
+for i = 1, n do
+    checkFuel()
+    for j = 1, 8 do
+        do1()
+        do2()
+        do1()
+        if j~=8 then
+            do3()
+        end
+    end
+    do4()
+    do5()
+    dump()
+    do6()
 end
