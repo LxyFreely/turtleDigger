@@ -16,10 +16,11 @@
 n=40
 
 local function do1()
-    for i = 1, 16 do
+    for i = 1, 15 do
         turtle.digDown()
         turtle.forward()
     end
+    turtle.digDown()
 end
 
 local function do2()
@@ -36,7 +37,7 @@ end
 
 local function do4()
     turtle.turnRight()
-    for i = 1, 16 do
+    for i = 1, 15 do
         turtle.forward()
     end
     turtle.turnRight()
