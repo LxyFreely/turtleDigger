@@ -53,4 +53,12 @@ function do6()
     end
 end
 
-function 
+function dump()
+    for slot = 9,16 do
+        turtle.select(slot)
+        if turtle.getItemCount() > 0 then
+            turtle.dropUp()
+        end
+    end
+end
+
